@@ -39,7 +39,7 @@ const Subscribe = () => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
-      <SubscribeEmailInput type="email" placeholder="Email" ref={emailInputRef}></SubscribeEmailInput>
+      <SubscribeEmailInput name="email" type="email" placeholder="Email" ref={emailInputRef}></SubscribeEmailInput>
       <SubscribeButton type="submit">Subscribe!</SubscribeButton>
 
       <input type="hidden" name="bot-field" />
