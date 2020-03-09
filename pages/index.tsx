@@ -11,6 +11,34 @@ const Home = () => (
   <>
     <Head>
       <title>URGLOWIN - Hey, you're glowing!</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta
+        name="description"
+        content={
+          "We're getting ready to help you navigate the wide world of skincare and what works for you."
+        }
+      ></meta>
+
+      <meta property="og:url" content="https://urglow.in" />
+      <meta property="og:title" content={"URGLOWIN - Hey, you're glowing!"} />
+      <meta
+        property="og:description"
+        content={
+          "We're getting ready to help you navigate the wide world of skincare and what works for you."
+        }
+      />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125571056-4"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-125571056-4');
+        `
+        }}
+      />
 
       <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
@@ -56,7 +84,9 @@ const Home = () => (
 
         <FooterContent>&copy; 2020 URGLOWIN. All rights reserved.</FooterContent>
 
-        <FooterSocial src={Instagram} />
+        <FooterSocialLink href="https://www.instagram.com/urglow.in/" target="_blank">
+          <FooterSocial src={Instagram} />
+        </FooterSocialLink>
       </FooterContainer>
     </Footer>
   </>
@@ -229,6 +259,9 @@ const FooterLogo = styled.img`
 const FooterContent = styled.p`
   flex-grow: 1;
   padding: 0px 15px;
+`;
+
+const FooterSocialLink = styled.a`
 `;
 
 const FooterSocial = styled.img`
