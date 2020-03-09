@@ -226,7 +226,8 @@ const BlackOverlay = styled.div`
 const ProductForm = styled.div`
   background: #FFFFFF;
   border-radius: 8px;
-  width: 600px;
+  width: 90%;
+  max-width: 600px;
   margin: 64px auto;
   padding: 48px;
   box-sizing: border-box;
@@ -237,6 +238,11 @@ const ProductForm = styled.div`
     text-transform: uppercase;
     font-family: 'GintoNord';
     font-size: 18px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 5vh;
+    padding: 24px;
   }
 `;
 

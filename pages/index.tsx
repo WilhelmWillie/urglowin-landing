@@ -17,7 +17,7 @@ const Home = () => {
 
   const handleNewProductClick = (e) => {
     e.preventDefault();
-    
+
     setShowProductModal(true);
   }
 
@@ -154,6 +154,7 @@ const MainContainer = styled(Container)`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    padding-bottom: 150px;
   }
 `;
 
@@ -237,15 +238,29 @@ const ProductCardB = styled.img`
 const FooterContainer = styled(WideContainer)`
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const FooterLogo = styled.img`
   flex-shrink: 1;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 18px;
+  }
 `;
 
 const FooterContent = styled.p`
   flex-grow: 1;
   padding: 0px 15px;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-bottom: 18px;
+  }
 `;
 
 const FooterSocialLink = styled.a`
