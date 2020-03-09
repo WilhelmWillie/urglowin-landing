@@ -29,7 +29,19 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
     const productName = formRef.current.productName.value;
     const category = formRef.current.category.value;
     const url = formRef.current.url.value;
+    const usedFor = formRef.current.usedFor.value;
     const price = formRef.current.price.value;
+
+    // Check that required stuff is filled out
+    if ([
+      brand.trim(),
+      productName.trim(),
+      category.trim(),
+      url.trim()
+    ].includes("")) {
+      addToast('Please fill out all required fields', { appearance: 'error' })
+      return;
+    }
 
     // Do something with email
     const serializedBody = encode({
@@ -39,6 +51,7 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
       productName,
       category,
       url,
+      usedFor,
       price,
     });
 
@@ -48,6 +61,7 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
       body: serializedBody
     });
 
+    closeModal();
     addToast('Product request successfully submitted ✨', { appearance: 'success' })
   }
 
@@ -79,12 +93,42 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
 
           <InputGroup>
             <label>Category*</label>
-            <input type="text" name="category" placeholder="Category"></input>
+
+            <select name="category">
+              <option value=""></option>
+              <option value="essence">Essence</option>
+              <option value="toner">Toner</option>
+              <option value="cleanser">Cleanser</option>
+              <option value="moisturizer">Moisturizer</option>
+              <option value="acid">Acid</option>
+              <option value="serum">Serum</option>
+              <option value="suncare">Suncare</option>
+            </select>
           </InputGroup>
 
           <InputGroup>
             <label>Ingredients URL*</label>
             <input type="text" name="url" placeholder="https://www.brand.com/product"></input>
+          </InputGroup>
+
+          <InputGroup>
+            <label>Used for</label>
+
+            <select name="usedFor">
+              <option value=""></option>
+              <option value="dryness">Dryness</option>
+              <option value="oiliness">Oiliness</option>
+              <option value="acne">Acne</option>
+              <option value="scarring">Scarring</option>
+              <option value="anti-aging">Anti-Aging</option>
+              <option value="uneven-skin">Uneven Skin Tone</option>
+              <option value="toning">Toning</option>
+              <option value="exfoliation">Exfoliation</option>
+              <option value="cleansing">Cleansing</option>
+              <option value="redness">Redness</option>
+              <option value="dark-circles">Dark Circles</option>
+              <option value="wrinkles">Wrinkles</option>
+            </select>
           </InputGroup>
 
           <InputGroup>
@@ -120,12 +164,40 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
 
       <InputGroup>
         <label>Category*</label>
-        <input type="text" name="category" placeholder="Category"></input>
+
+        <select name="category">
+          <option value="essence">Essence</option>
+          <option value="toner">Toner</option>
+          <option value="cleanser">Cleanser</option>
+          <option value="moisturizer">Moisturizer</option>
+          <option value="acid">Acid</option>
+          <option value="serum">Serum</option>
+          <option value="suncare">Suncare</option>
+        </select>
       </InputGroup>
 
       <InputGroup>
         <label>Ingredients URL*</label>
         <input type="text" name="url" placeholder="https://www.brand.com/product"></input>
+      </InputGroup>
+
+      <InputGroup>
+        <label>Used for</label>
+
+        <select name="usedFor">
+          <option value="dryness">Dryness</option>
+          <option value="oiliness">Oiliness</option>
+          <option value="acne">Acne</option>
+          <option value="scarring">Scarring</option>
+          <option value="anti-aging">Anti-Aging</option>
+          <option value="uneven-skin">Uneven Skin Tone</option>
+          <option value="toning">Toning</option>
+          <option value="exfoliation">Exfoliation</option>
+          <option value="cleansing">Cleansing</option>
+          <option value="redness">Redness</option>
+          <option value="dark-circles">Dark Circles</option>
+          <option value="wrinkles">Wrinkles</option>
+        </select>
       </InputGroup>
 
       <InputGroup>
@@ -202,13 +274,17 @@ const InputGroup = styled.div`
     font-size: 18px;
   }
 
-  input {
+  input, select {
     background: #FFFFFF;
     border: 1px solid #B1D9FF;
     box-sizing: border-box;
     border-radius: 8px;
     font-size: 18px;
     padding: 12px;
+  }
+
+  select {
+    height: 48px;
   }
 `;
 
