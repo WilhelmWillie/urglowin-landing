@@ -242,6 +242,7 @@ const ProductForm = styled.div`
 
   @media screen and (max-width: 768px) {
     margin-top: 5vh;
+    max-height: 80vh;
     padding: 24px;
   }
 `;
