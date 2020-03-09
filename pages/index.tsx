@@ -1,3 +1,4 @@
+import { useState} from "react";
 import styled from "styled-components";
 import Head from "next/head";
 
@@ -9,88 +10,105 @@ import BlueCirc from "../assets/blue-circle.svg";
 
 // Components
 import Subscribe from "../components/Subscribe";
+import ProductModal from "../components/ProductModal";
 
-const Home = () => (
-  <>
-    <Head>
-      <title>URGLOWIN - Hey, you're glowing!</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta
-        name="description"
-        content={
-          "We're getting ready to help you navigate the wide world of skincare and what works for you."
-        }
-      ></meta>
+const Home = () => {
+  const [showProductModal, setShowProductModal] = useState(false);
 
-      <meta property="og:url" content="https://urglow.in" />
-      <meta property="og:title" content={"URGLOWIN - Hey, you're glowing!"} />
-      <meta
-        property="og:description"
-        content={
-          "We're getting ready to help you navigate the wide world of skincare and what works for you."
-        }
-      />
+  const handleNewProductClick = (e) => {
+    e.preventDefault();
+    
+    setShowProductModal(true);
+  }
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125571056-4"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-125571056-4');
-        `
-        }}
-      />
+  const handleModalClose = () => {
+    setShowProductModal(false);
+  }
 
-      <link rel="icon" type="image/png" href="/favicon.png" />
-    </Head>
+  return (
+    <>
+      <Head>
+        <title>URGLOWIN - Hey, you're glowing!</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content={
+            "We're getting ready to help you navigate the wide world of skincare and what works for you."
+          }
+        ></meta>
 
-    <Overflow>
-      <Header>
-        <WideContainer>
-          <HeaderLogo src={Logo} />
-        </WideContainer>
-      </Header>
+        <meta property="og:url" content="https://urglow.in" />
+        <meta property="og:title" content={"URGLOWIN - Hey, you're glowing!"} />
+        <meta
+          property="og:description"
+          content={
+            "We're getting ready to help you navigate the wide world of skincare and what works for you."
+          }
+        />
 
-      <Main>
-        <MainContainer>
-          <MainColumn>
-            <h1>Hey, you're glowing! ✨</h1>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125571056-4"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-125571056-4');
+          `
+          }}
+        />
 
-            <p>We're getting ready to help you navigate the wide world of skincare and what works for <b>you.</b></p>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+      </Head>
 
-            <p>We're not quite there yet, but you can sign up for any updates or even contribute to the growing list of products!</p>
+      <Overflow>
+        <Header>
+          <WideContainer>
+            <HeaderLogo src={Logo} />
+          </WideContainer>
+        </Header>
 
-            <Subscribe />
+        <Main>
+          <MainContainer>
+            <MainColumn>
+              <h1>Hey, you're glowing! ✨</h1>
 
-            <NewProductLink href="#">Request New Product →</NewProductLink>
-          </MainColumn> 
+              <p>We're getting ready to help you navigate the wide world of skincare and what works for <b>you.</b></p>
 
-          <DetailsColumn>
-            <BlueRecImg src={BlueRec} />
-            <BlueCirImg src={BlueCirc} />
-            <GorlImg src="/gorl.jpg" /> 
-            <ProductCardA src="/prod_card_1.png" />
-            <ProductCardB src="/prod_card_2.png" />
-          </DetailsColumn>
-        </MainContainer>
-      </Main>
-    </Overflow>
+              <p>We're not quite there yet, but you can sign up for any updates or even contribute to the growing list of products!</p>
 
-    <Footer>
-      <FooterContainer>
-        <FooterLogo src={Logo} />
+              <Subscribe />
 
-        <FooterContent>&copy; 2020 URGLOWIN. All rights reserved.</FooterContent>
+              <NewProductLink href="#" onClick={handleNewProductClick}>Request New Product →</NewProductLink>
+            </MainColumn> 
 
-        <FooterSocialLink href="https://www.instagram.com/urglow.in/" target="_blank">
-          <FooterSocial src={Instagram} />
-        </FooterSocialLink>
-      </FooterContainer>
-    </Footer>
-  </>
-);
+            <DetailsColumn>
+              <BlueRecImg src={BlueRec} />
+              <BlueCirImg src={BlueCirc} />
+              <GorlImg src="/gorl.jpg" /> 
+              <ProductCardA src="/prod_card_1.png" />
+              <ProductCardB src="/prod_card_2.png" />
+            </DetailsColumn>
+          </MainContainer>
+        </Main>
+      </Overflow>
+
+      <Footer>
+        <FooterContainer>
+          <FooterLogo src={Logo} />
+
+          <FooterContent>&copy; 2020 URGLOWIN. All rights reserved.</FooterContent>
+
+          <FooterSocialLink href="https://www.instagram.com/urglow.in/" target="_blank">
+            <FooterSocial src={Instagram} />
+          </FooterSocialLink>
+        </FooterContainer>
+      </Footer>
+
+      <ProductModal isOpen={showProductModal} closeModal={handleModalClose} />
+    </>
+  )
+};
 
 const Overflow = styled.div`
   overflow: hidden;
