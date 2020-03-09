@@ -100,7 +100,44 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
       </ProductForm>
     </BlackOverlay>
   ) : (
-    null
+    <HiddenForm
+      onSubmit={handleSubscribe}
+      name="product-request"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      ref={formRef}
+    >
+      <InputGroup>
+        <label>Brand*</label>
+        <input type="text" name="brand" placeholder="Brand Name"></input>
+      </InputGroup>
+      
+      <InputGroup>
+        <label>Product Name*</label>
+        <input type="text" name="productName" placeholder="Product Name"></input>
+      </InputGroup>
+
+      <InputGroup>
+        <label>Category*</label>
+        <input type="text" name="category" placeholder="Category"></input>
+      </InputGroup>
+
+      <InputGroup>
+        <label>Ingredients URL*</label>
+        <input type="text" name="url" placeholder="https://www.brand.com/product"></input>
+      </InputGroup>
+
+      <InputGroup>
+        <label>Regular Price</label>
+        <input type="text" name="price" placeholder="19.99"></input>
+      </InputGroup>
+
+      <SubmitButton type="submit">Submit Product for Review</SubmitButton>
+
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="product-request" />
+    </HiddenForm>
   )
 }
 
@@ -129,6 +166,10 @@ const ProductForm = styled.div`
     font-family: 'GintoNord';
     font-size: 18px;
   }
+`;
+
+const HiddenForm = styled.form`
+  display: none;
 `;
 
 const FormHeader = styled.div`
