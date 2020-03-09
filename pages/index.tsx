@@ -10,7 +10,9 @@ import BlueCirc from "../assets/blue-circle.svg";
 const Home = () => (
   <>
     <Head>
-      <title>URGLOWIN.</title>
+      <title>URGLOWIN - Hey, you're glowing!</title>
+
+      <link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
 
     <Overflow>
