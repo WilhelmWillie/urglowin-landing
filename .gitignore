@@ -89,3 +89,6 @@ typings/
 
 # DS_Store
 **/.DS_Store
+
+# Export
+out/
