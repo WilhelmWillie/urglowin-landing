@@ -7,6 +7,9 @@ import Instagram from "../assets/instagram.svg";
 import BlueRec from "../assets/blue-rect.svg";
 import BlueCirc from "../assets/blue-circle.svg";
 
+// Components
+import Subscribe from "../components/Subscribe";
+
 const Home = () => (
   <>
     <Head>
@@ -59,10 +62,7 @@ const Home = () => (
 
             <p>We're not quite there yet, but you can sign up for any updates or even contribute to the growing list of products!</p>
 
-            <Subscribe>
-              <SubscribeEmailInput type="email" placeholder="Email"></SubscribeEmailInput>
-              <SubscribeButton>Subscribe!</SubscribeButton>
-            </Subscribe>
+            <Subscribe />
 
             <NewProductLink href="#">Request New Product →</NewProductLink>
           </MainColumn> 
@@ -149,37 +149,6 @@ const MainColumn = styled.div`
   p {
     margin-bottom: 18px;
   }
-`;
-
-const Subscribe = styled.div`
-  display: flex;
-  flex-direction: row;
-  border: 1px solid #FFAE73;
-  border-radius: 6px;
-  margin-top: 32px;
-  overflow: hidden;
-`;
-
-const SubscribeEmailInput = styled.input`
-  flex-grow: 1;
-  padding: 14px;
-  border: none;
-  font-size: 18px;
-  font-family: "MabroPro", sans-serif;
-
-  &::placeholder {
-    font-size: 18px;
-    font-family: "MabroPro", sans-serif;
-    color: #BBBBBB;
-  }
-`;
-
-const SubscribeButton = styled.button`
-  background-color: #FFAE73;
-  border: none;
-  color: #FFFFFF;
-  padding: 14px 16px;
-  font-size: 18px;
 `;
 
 const NewProductLink = styled.a`
