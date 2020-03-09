@@ -33,7 +33,7 @@ const ProductModal = ({ isOpen, closeModal } : Props) => {
 
     // Do something with email
     const serializedBody = encode({
-      "form-name": "email-subscribe",
+      "form-name": "product-request",
       "bot-field": "",
       brand,
       productName,
