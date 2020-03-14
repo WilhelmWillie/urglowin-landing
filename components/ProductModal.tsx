@@ -241,9 +241,10 @@ const ProductForm = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    margin-top: 5vh;
-    max-height: 80vh;
-    padding: 24px;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
   }
 `;
 
@@ -292,6 +293,7 @@ const InputGroup = styled.div`
 
   select {
     height: 48px;
+    -webkit-appearance: none;
   }
 `;
 
