@@ -228,7 +228,7 @@ const ProductForm = styled.div`
   border-radius: 8px;
   width: 90%;
   max-width: 600px;
-  margin: 64px auto;
+  margin: 5vh auto;
   padding: 48px;
   box-sizing: border-box;
   max-height: 90vh;

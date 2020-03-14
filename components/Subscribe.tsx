@@ -14,6 +14,11 @@ const Subscribe = () => {
     if (emailInputRef && emailInputRef.current) {
       const email = emailInputRef.current.value;
 
+      if (email === "") {
+        addToast('Please enter a valid e-mail', { appearance: 'error' })
+        return;
+      }
+
       // Do something with email
       const serializedBody = encode({
         "form-name": "email-subscribe",
