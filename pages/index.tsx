@@ -73,7 +73,7 @@ const Home = () => {
             <MainColumn>
               <h1>Hey, you're glowing! ✨</h1>
 
-              <p>We’re getting ready to help you navigate the wide world of skincare and what works for <b>you</b>> through <b>curated recommendations.</b></p>
+              <p>We’re getting ready to help you navigate the wide world of skincare and what works for <b>you</b> through <b>curated recommendations.</b></p>
 
               <p>We’re not quite there yet, but you can sign up for any updates or even contribute to our growing list of products!</p>
 
@@ -192,7 +192,7 @@ const DetailsColumn = styled(MainColumn)`
 
 const BlueRecImg = styled.img`
   position: absolute;
-  top: -150%;
+  top: -120%;
   width: 250%;
   z-index; -1; 
 `;
